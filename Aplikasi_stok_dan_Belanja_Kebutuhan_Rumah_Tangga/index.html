@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f6f7f9">
+    <title>RumahKu — Stok & Belanja Kebutuhan Rumah Tangga</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section id="loginPage" class="login-page">
+        <div class="login-brand-panel">
+            <a class="brand brand-light" href="#"><span class="brand-mark"><i class="fa-solid fa-house-chimney"></i></span><span>RumahKu</span></a>
+            <div class="login-brand-copy"><span>STOK & BELANJA KEBUTUHAN RUMAH TANGGA</span><h1>Kelola stok,<br>atur belanja,<br>rumah selalu siap.</h1><p>Semua kebutuhan rumah tangga, lebih mudah terencana.</p></div>
+            <div class="login-house-art"><i class="fa-solid fa-house-chimney-window"></i><span><i class="fa-solid fa-leaf"></i></span></div>
+            <small>RUMAH LEBIH TERATUR, SETIAP HARI.</small>
+        </div>
+        <div class="login-panel">
+            <form id="loginForm" class="login-form">
+                <span class="eyebrow">SELAMAT DATANG KEMBALI!</span>
+                <h2>Masuk ke RumahKu</h2>
+                <p class="muted">Masuk untuk melanjutkan ke akun Anda.</p>
+                <label class="field-label" for="loginName">Email / No. HP</label>
+                <div class="field-wrap"><i class="fa-regular fa-user"></i><input id="loginName" name="name" type="text" placeholder="Masukkan email atau nama" autocomplete="username" required></div>
+                <label class="field-label" for="loginPassword">Password</label>
+                <div class="field-wrap"><i class="fa-solid fa-lock"></i><input id="loginPassword" name="password" type="password" placeholder="Masukkan password" autocomplete="current-password" required><button id="togglePassword" class="password-toggle" type="button" aria-label="Tampilkan password"><i class="fa-regular fa-eye"></i></button></div>
+                <div class="login-options"><label class="check-label"><input type="checkbox" checked> Ingat saya</label><button class="text-button" type="button" data-action="forgot-password">Lupa password?</button></div>
+                <button class="button button-primary login-submit" type="submit">Login</button>
+                <p class="login-register">Belum punya akun? <button type="button" class="text-button" data-action="register">Daftar sekarang</button></p>
+                <p class="login-footnote"><i class="fa-solid fa-circle-info"></i> Versi demo — masuk dengan nama dan password apa saja.</p>
+            </form>
+        </div>
+    </section>
+
+    <div id="appWrapper" class="app-shell hidden">
+        <aside id="sidebar" class="sidebar">
+            <a class="brand sidebar-brand" href="#" data-page="dashboard"><span class="brand-mark"><i class="fa-solid fa-house-chimney"></i></span><span>RumahKu</span></a>
+            <nav class="sidebar-nav" aria-label="Navigasi utama">
+                <button class="nav-item active" data-page="dashboard"><i class="fa-solid fa-house"></i><span>Beranda</span></button>
+                <button class="nav-item" data-page="stok"><i class="fa-solid fa-box"></i><span>Stok Barang</span><span id="stockNavCount" class="nav-count">0</span></button>
+                <button class="nav-item" data-page="belanja"><i class="fa-solid fa-cart-shopping"></i><span>Belanja</span><span id="shoppingNavCount" class="nav-count">0</span></button>
+                <button class="nav-item" data-page="riwayat"><i class="fa-solid fa-clock-rotate-left"></i><span>Riwayat Transaksi</span></button>
+                <button class="nav-item" data-page="pengaturan"><i class="fa-solid fa-gear"></i><span>Pengaturan</span></button>
+            </nav>
+            <div class="sidebar-spacer"></div>
+            <div class="sidebar-user"><div id="sidebarAvatar" class="avatar">C</div><div class="user-copy"><strong id="sidebarName">Candra</strong><span>Pengguna</span></div><button class="icon-button logout-button" data-action="logout" aria-label="Keluar"><i class="fa-solid fa-arrow-right-from-bracket"></i></button></div>
+        </aside>
+
+        <main class="main-panel">
+            <header class="topbar">
+                <button id="menuToggle" class="icon-button mobile-menu" aria-label="Buka menu"><i class="fa-solid fa-bars"></i></button>
+                <div class="topbar-brand"><i class="fa-solid fa-house-chimney"></i><strong>RumahKu</strong></div>
+                <label class="search-box"><i class="fa-solid fa-magnifying-glass"></i><input id="globalSearch" type="search" placeholder="Cari barang, kategori..." aria-label="Cari barang atau kategori"></label>
+                <div class="topbar-right"><button id="notificationButton" class="icon-button notification-button" aria-label="Notifikasi"><i class="fa-regular fa-bell"></i><span class="notification-dot"></span></button><button class="icon-button profile-shortcut" data-page="pengaturan" aria-label="Profil"><i class="fa-regular fa-user"></i></button></div>
+            </header>
+            <section id="pageContent" class="page-content" tabindex="-1"></section>
+        </main>
+    </div>
+    <div id="notificationPopover" class="notification-popover hidden">
+        <div class="popover-heading"><strong>Notifikasi</strong><button class="icon-button" data-action="close-notifications" aria-label="Tutup"><i class="fa-solid fa-xmark"></i></button></div>
+        <div id="notificationList"></div>
+    </div>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script src="script.js"></script>
+</body>
+</html>
